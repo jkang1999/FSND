@@ -47,8 +47,8 @@ class Venue(db.Model):
     # adding missing fields 9/8/21
     genres = db.Column(db.String(120))
     website_link = db.Column(db.String(120))
-    looking_for_talent = db.Column(db.Boolean)
-    seeking_desc = db.Column(db.String)
+    seeking_talent = db.Column(db.Boolean)
+    seeking_description = db.Column(db.String)
 
 class Artist(db.Model):
     __tablename__ = 'Artist'
@@ -65,11 +65,14 @@ class Artist(db.Model):
     # TODO: implement any missing fields, as a database migration using Flask-Migrate
     # adding missing fields 9/8/21
     website_link = db.Column(db.String(120))
-    looking_for_venues = db.Column(db.Boolean)
-    seeking_desc = db.Column(db.String)
+    seeking_venue = db.Column(db.Boolean)
+    seeking_description = db.Column(db.String)
 
 # TODO Implement Show and Artist models, and complete all model relationships and properties, as a database migration.
+class Show(db.Model):
+  __tablename__ = 'Show'
 
+  artist_id = db.Column(db.Integer)
 #----------------------------------------------------------------------------#
 # Filters.
 #----------------------------------------------------------------------------#
